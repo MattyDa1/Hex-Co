@@ -463,6 +463,10 @@ footer {
   margin-right: 910px;
 }
 
+.m_margin {
+  margin-top: 100px;
+}
+
 .m_avg {
   width: 80%;
   background-color: #212121;
@@ -592,7 +596,7 @@ footer {
 
 /*Kontakt os*/
 .kontaktos {
-  margin-right: 870px;
+  margin-right: 820px;
   min-height: 780px;
 }
 

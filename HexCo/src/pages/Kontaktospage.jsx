@@ -10,10 +10,45 @@ import s11_20 from "./kontaktospics/s11_20.svg"
 import s20 from "./kontaktospics/s20.svg"
 import Hurtigst_muligt from "./kontaktospics/Hurtigst_muligt.svg"
 
-import React from 'react';
 import LazyLoad from 'react-lazyload';
 
+import React, { useRef, useState } from 'react';
+import {firestore} from "../firebase"
+import { addDoc,collection } from "firebase/firestore"
+
 export default function Kontaktospage() {
+    const [block1Visible, setBlock1Visible] = useState(true);
+    const [block2Visible, setBlock2Visible] = useState(false);
+
+    const toggleBlocks = () => {
+        setBlock1Visible(!block1Visible);
+        setBlock2Visible(!block2Visible);
+    };
+
+    const messageRef1 = useRef ();
+    const messageRef2 = useRef ();
+    const messageRef3 = useRef ();
+    const messageRef4 = useRef ();
+    const ref = collection(firestore,"messages");
+
+    const handleSave = async (e) => {
+        e.preventDefault();
+        console.log(messageRef1.current.value);
+
+        let data = {
+            Navn: messageRef1.current.value,
+            Mail: messageRef2.current.value,
+            Medarbejder: messageRef3.current.value,
+            Kommentar: messageRef4.current.value,
+        };
+
+        try {
+            addDoc(ref, data);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <section className="kontaktos row width-100">
             <aside className="width-30 top hextor_møde">
@@ -30,21 +65,21 @@ export default function Kontaktospage() {
                 </div>
                 <div className="column k_form">
                     <div className="row k_topform">
-                        <button className="k_topbtn">Services</button> {/*Lav en onclick så den skifter med Display none*/}
-                        <button className="k_topbtn">Rådgivning</button> {/*Lav en onclick så den skifter med Display none*/}
+                        <button className="k_topbtn" onClick={toggleBlocks}>Services</button> {/*Lav en onclick så den skifter med Display none*/}
+                        <button className="k_topbtn" onClick={toggleBlocks}>Rådgivning</button> {/*Lav en onclick så den skifter med Display none*/}
                     </div>
-                    <div>
-                        <form className="column">
-                            <label for="fnavn"><p className="kontakt_form">Navn</p></label>
-                            <input type="text" id="fnavn" name="firstname" placeholder="Dit fulde navn her.." required />
-                            
-                            <label for="fmail"><p className="kontakt_form">E-mail</p></label>
-                            <input type="text" id="fmail" name="lastname" placeholder="Din mail her.." required />
+                    <div style={{ display: block1Visible ? 'block' : 'none' }}>
+                        <form  onSubmit={handleSave} className="column" id="k_service">
+                            <label htmlFor="fnavn"><p className="kontakt_form">Navn</p></label>
+                            <input type="text" id="Navn" name="Navn" placeholder="Dit fulde navn her.." required  ref={messageRef1}/>
+
+                            <label htmlFor="fmail"><p className="kontakt_form">E-mail</p></label>
+                            <input type="text" id="Mail" name="Mail" placeholder="Din mail her.." required  ref={messageRef2}/>
 
                             <hr className="k_margin"/>
 
-                            <label for="country"><p className="kontakt_form">Kontakt person</p></label>
-                            <select id="country" name="medarbejder">
+                            <label htmlFor="fmedarbejder"><p className="kontakt_form">Kontakt person</p></label>
+                            <select id="Medarbejder" name="Medarbejder" ref={messageRef3}>
                                 <option value="none"></option>
                                 <option value="Frederik">Frederik - Optimering's specialist</option>
                                 <option value="Kristian">Kristian - Marketing's specialist</option>
@@ -52,22 +87,24 @@ export default function Kontaktospage() {
                                 <option value="Mathias">Mathias - Marketing's specialist</option>
                             </select>
                                                     
-                            <label for="subject"><p className="kontakt_form">Kommentar</p></label>
-                            <textarea id="subject" name="subject" placeholder="Skriv her.."></textarea>
+                            <label htmlFor="kommentar"><p className="kontakt_form">Kommentar</p></label>
+                            <textarea id="Kommentar" name="Kommentar" placeholder="Skriv her.." ref={messageRef4}></textarea>
 
                             <hr className="k_margin"/>
                             
-                            <input type="submit" value="Book møde" /> {/*lav en  pop up effekt*/}
+                            <input type="submit" id="bookknap" value="bookmøde" /> {/*lav en  pop up effekt*/}
                         </form>
-                        <form className="column">
-                            <label for="fnavn"><p className="kontakt_form">Navn</p></label>
-                            <input type="text" id="fnavn" name="firstname" placeholder="Dit fulde navn her.." required />
+                    </div>
+                    <div style={{ display: block2Visible ? 'block' : 'none' }}>
+                        <form className="column" id="k_rådgivning">
+                            <label htmlFor="fnavn"><p className="kontakt_form">Navn</p></label>
+                            <input type="text" id="fnavn" name="Navn" placeholder="Dit fulde navn her.." required />
                             
-                            <label for="fmail"><p className="kontakt_form">E-mail</p></label>
-                            <input type="text" id="fmail" name="lastname" placeholder="Din mail her.." required />
+                            <label htmlFor="fmail"><p className="kontakt_form">E-mail</p></label>
+                            <input type="text" id="fmail" name="Mail" placeholder="Din mail her.." required />
 
-                            <label for="country"><p className="kontakt_form">Service & person</p></label>
-                            <select id="country" name="medarbejder">
+                            <label htmlFor="fmedarbejder"><p className="kontakt_form">Service & person</p></label>
+                            <select id="country" name="Medarbejder">
                                 <option value="none"></option>
                                 <option value="Frederik">Frederik - Optimering's specialist</option>
                                 <option value="Kristian">Kristian - Marketing's specialist</option>
@@ -77,95 +114,95 @@ export default function Kontaktospage() {
 
                             <hr className="k_margin"/>
 
-                            <label for="asider"><p className="kontakt_form">Antal sider</p></label>
+                            <label htmlFor="asider"><p className="kontakt_form">Antal sider</p></label>
                             <div className="row">
-                                <label class="container" className="nocheck">
-                                    <input type="radio" checked="checked" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" checked="Checked" name="1-10 sider" />
                                     <div className="k_checkedimg">
                                         <img src={s1_10} alt="1-10" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="11-20 sider" />
                                     <div className="k_checkedimg ">
                                         <img src={s11_20} alt="11-20" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="20+ sider" />
                                     <div className="k_checkedimg">
                                         <img src={s20} alt="20+" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
                             </div>
 
-                            <label for="sfunk" required><p className="kontakt_form">Specielle Funktioner</p></label>
+                            <label htmlFor="sfunktioner" required><p className="kontakt_form">Specielle Funktioner</p></label>
                             <div className="row">
-                                <label class="container" className="nocheck">
-                                    <input type="radio" checked="checked" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" checked="Checked" name="Ja til specielle funktioner" />
                                     <div className="k_checkedimg">
                                         <img src={Ja} alt="Ja" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="Nej til specielle funktioner" />
                                     <div className="k_checkedimg">
                                         <img src={Nej} alt="Nej" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
                             </div>
                             
-                            <label for="ldesign" required><p className="kontakt_form">Logo design</p></label>
+                            <label htmlFor="ldesign" required><p className="kontakt_form">Logo design</p></label>
                             <div className="row">
-                                <label class="container" className="nocheck">
-                                    <input type="radio" checked="checked" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" checked="checked" name="Ja til logo design" />
                                     <div className="k_checkedimg">
                                         <img src={Ja} alt="Ja" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="Nej til logo design" />
                                     <div className="k_checkedimg">
                                         <img src={Nej} alt="Nej" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
                             </div>
 
-                            <label for="dline" required><p className="kontakt_form">Deadline</p></label>
+                            <label htmlFor="deadline" required><p className="kontakt_form">Deadline</p></label>
                             <div className="row">
-                                <label class="container" className="nocheck">
-                                    <input type="radio" checked="checked" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" checked="checked" name="Hurtigst muligt" />
                                     <div className="k_checkedimg">
                                         <img src={Hurtigst_muligt} alt="Hurtigst muligt" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="2-4 uger" />
                                     <div className="k_checkedimg">
                                         <img src={s2_4_uger} alt="2-4 uger" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
-                                <label class="container" className="nocheck">
-                                    <input type="radio" name="radio" />
+                                <label className="nocheck">
+                                    <input type="radio" name="4 uger" />
                                     <div className="k_checkedimg">
                                         <img src={s4_uger} alt="4 uger" />
                                     </div>
-                                    <span class="checkmark"></span>
+                                    <span className="checkmark"></span>
                                 </label>
                             </div>
                             
                             <hr className="k_margin"/>
                             
-                            <input type="submit" value="Book møde" /> {/*lav en hover effekt og pop up effekt*/}
+                            <input type="submit" value="bookmøde" /> {/*pop up effekt*/}
                         </form>
                     </div>
                 </div>
@@ -184,7 +221,7 @@ export default function Kontaktospage() {
                     <p className="k_text">Lokation:</p>
                     <a href="https://maps.app.goo.gl/3Y5JEt2sivp8g3XTA" className="k_start">
                     <LazyLoad>
-                       <img src={Lokation} alt="Google maps lokation" />                    
+                    <img src={Lokation} alt="Google maps lokation" />                    
                     </LazyLoad>
                     </a>
                 </div>
