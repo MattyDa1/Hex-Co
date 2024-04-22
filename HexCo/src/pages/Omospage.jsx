@@ -71,69 +71,51 @@ export default function Omospage() {
                     </div>
                 </aside>
                 <aside className="top">
-                    <div>
+                    <div className="o_titel">
                         <h1 className="headline">Mød teamet</h1>
                     </div>
-                    <div className="row">
-                        <div class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img src={Frederik} alt="Frederik" class="produkter_img" />
-                                </div>
-                                <div class="card-back">
-                                    <img src={FrederikS} alt="Frederik sjov" className="produkter_img" />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="c_front">
-                                <img src={Frederik} alt="" />
-                            </div>
-                            <div className="c_back">
-                                <img src={FrederikS} alt="" />
-                            </div>
-                        </div>
-                    </div>{/*
+                    <div className="row o_flip">
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img src={Frederik} alt="Frederik" className="m_imgs"/>
                                 </div>
                                 <div class="flip-card-back">
-                                    <img src={FrederikS} alt="Frederik Sjov" className="m_imgs" />
+                                    <img src={FrederikS} alt="Frederik sjov" className="m_imgs" />
                                 </div>
                             </div>
                         </div>
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src={Mads} alt="Frederik" className="m_imgs"/>
+                                    <img src={Mads} alt="Mads" className="m_imgs"/>
                                 </div>
                                 <div class="flip-card-back">
-                                    <img src={MadsS} alt="Frederik Sjov" className="m_imgs" />
+                                    <img src={MadsS} alt="Mads sjov" className="m_imgs" />
                                 </div>
                             </div>
                         </div>
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src={Kristian} alt="Frederik" className="m_imgs"/>
+                                    <img src={Kristian} alt="Kristian" className="m_imgs"/>
                                 </div>
                                 <div class="flip-card-back">
-                                    <img src={KristianS} alt="Frederik Sjov" className="m_imgs" />
+                                    <img src={KristianS} alt="Kristian sjov" className="m_imgs" />
                                 </div>
                             </div>
                         </div>
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
-                                    <img src={Mathias} alt="Frederik" className="m_imgs"/>
+                                    <img src={Mathias} alt="Mathias" className="m_imgs"/>
                                 </div>
                                 <div class="flip-card-back">
-                                    <img src={MathiasS} alt="Frederik Sjov" className="m_imgs" />
+                                    <img src={MathiasS} alt="Mathias sjov" className="m_imgs" />
                                 </div>
                             </div>
-                        </div>*/}
+                        </div>
+                    </div>
                 </aside>
             </div>
         </section>

@@ -57,7 +57,7 @@ export default function Kontaktospage() {
 
                             <hr className="k_margin"/>
                             
-                            <input type="submit" value="Book møde" /> {/*lav en hover effekt og pop up effekt*/}
+                            <input type="submit" value="Book møde" /> {/*lav en  pop up effekt*/}
                         </form>
                         <form className="column">
                             <label for="fnavn"><p className="kontakt_form">Navn</p></label>
