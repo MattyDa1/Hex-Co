@@ -1,0 +1,824 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root { /* find ud af hvordan man får fuld skærm*/
+  color-scheme: light dark;
+  background-color: #292929;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.headline {
+  /*Lav overskrift*/
+  font-size: 64px;
+  font-family: "Kumbh Sans", sans-serif;
+  color: white;
+  line-height: 1.5;
+  margin: 20px 20px;
+  text-align: start;
+}
+
+p {
+  font-size: 24px;
+  font-family: "Ledger", serif;
+  line-height: 1.5;
+  color: white;
+  text-align: start;
+  margin-left: 20px;
+}
+
+.andettxt {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.top {
+  margin-top: 100px;
+}
+
+.top1 {
+  margin-top: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+/*Navigation*/
+.nav {
+  display: flex;
+  justify-content: center;
+  max-width: 101%;
+  min-width: 101%;
+  background-color: rgb(30, 30, 30, 80%);
+  height: 100px;
+  z-index: 10;
+  position: fixed;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.nav_logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 65%;
+}
+
+.navlogo {
+  width: auto;
+  height: 80px;
+  margin: 10px 50px;
+}
+
+.nav_links {
+  display: flex;
+  justify-content: space-around;
+  width: 35%;
+  align-items: center;
+}
+
+.navlink {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.navbutton {
+  background-color: #777E5C;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 100px;
+  font-size: 20px;
+  border: none;
+}
+
+.navbutton:hover {
+  background-color: #545a40;
+}
+
+/*navigation knapper*/
+.fixed {
+  height: 0px;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 74px;
+  right: 35px;
+  z-index: 10;
+}
+
+.hex_fixed1 {
+  cursor: pointer;
+}
+
+.hex_fixed2 {
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.daen_text {
+  position: absolute;
+  bottom: -45px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.f_blade {
+  margin: 0px 0px 9px -42px;
+}
+
+/*Footer*/
+footer {
+  background-color: #1E1E1E;
+  min-width: 100%;
+  max-width: 100%;
+  height: 300px;
+  left: 0px;
+  right: 0px;
+}
+
+.footer1 {
+  width: 32%;
+  display: flex;
+}
+
+.footer {
+  position: relative;
+  top: 194px;
+  left: 0px;
+  height: 106px;
+}
+
+.f_logo {
+  display: flex;
+}
+
+.f_logo1 {
+  position: relative;
+  width: 138px;
+  left: 7%;
+}
+
+.footer2 {
+  width: 17%;
+  display: flex;
+  justify-content: start;
+  padding-top: 30px;
+}
+
+.f_headline {
+  font-family: "Kumbh Sans", sans-serif;
+  padding: 20px 5px;
+  width: 50%;
+  text-align: start;
+  border-bottom: white solid 2px;
+}
+
+.f_text {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  text-align: start;
+  padding: 5px 25px;
+  width: 70%;
+  line-height: 1.5;
+}
+
+.medier {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.f_ikon {
+  margin: 10px 5px;
+}
+
+/*Homepage*/
+.width {
+  max-width: 100%;
+  max-height: 867px;
+}
+
+.f_breaker1 {
+  margin-top: -100px; /*kan jeg ikke få til at virke*/
+}
+
+.f_breaker1text {
+  position: absolute;
+  top: 250px;
+  left: 280px;
+  text-align: start;
+}
+
+.cta_btn {
+  background-color: #777E5C;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 300px;
+  font-size: 30px;
+  margin: 30px 0px;
+  padding: 15px 0px;
+  justify-content: start;
+  border: none;
+}
+
+.cta_btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.cta_btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.cta_btn:hover span {
+  padding-right: 25px;
+}
+
+.cta_btn:hover {
+  background-color: #545a40;
+}
+
+.cta_btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.cta_margin {
+  margin: 0px 0px 25px;
+}
+
+.hextor_s {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -100px;
+  margin-right: 150px;
+}
+
+.none {
+  height: 0px;
+}
+
+.f_mouse {
+  margin-top: -100px;
+  margin-bottom: 12px;
+}
+
+.f_textlogo {
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 50px auto;
+  width: 80%;
+}
+
+.f_textlogodiv {
+  width: 33%;
+  text-align: center;
+}
+
+.f_textlogologo {
+  height: 100px;
+  width: 34%;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.textlogologo {
+  height: 100px;
+}
+
+.width-60 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+}
+
+.f_bæredygtig {
+  margin: 20px auto;
+  width: 70%;
+  text-align: start;
+}
+
+.width-40 {
+  width: 40%;
+}
+
+.skubber {
+  margin-bottom: 120px;
+}
+
+.bæredygtig_ikoner {
+  position: relative;
+  right: 13px;
+  top: 50px;
+  z-index: 1;
+  margin-bottom: -120px;
+}
+
+.oom {
+  height: 950px;
+}
+
+.f_baggrund {
+  z-index: 1;
+  height: 100%;
+  margin-left: 140px;
+  margin-top: 165px;
+}
+
+.f_oprettelse {
+  background-color: rgb(10, 10, 10, 80%);
+  z-index: 2;
+  position: absolute;
+  height: 890px;
+  left: 200px;
+  width: 30%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.f_optimering {
+  background-color: rgb(10, 10, 10, 80%);
+  z-index: 2;
+  border-radius: 15px;
+}
+
+.f_marketing {
+  background-color: rgb(10, 10, 10, 80%);
+  z-index: 2;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.f_right {
+  position: absolute;
+  right: 100px;
+  width: 50%;
+}
+
+.oom_ikon {
+  margin: 30px 50px;
+  max-height: 96px;
+  max-width: 158px;
+}
+
+.oom_ikon1 {
+  margin: 50px auto;
+  height: 130px;
+  width: 130px;
+}
+
+/*Medarbejder*/
+.medarbejder {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 780px;
+  margin-right: 910px;
+}
+
+.m_avg {
+  width: 80%;
+  background-color: #212121;
+  border-left: white solid 2px;
+  border-right: white solid 2px;
+}
+
+.m_titler {
+  border-bottom: black solid 2px;
+  padding-top: 125px;
+}
+
+.m_titel {
+  width: 100%;
+  margin: 50px 50px 15px 0px;
+}
+
+.m_back1 {
+  background-color: #777E5C;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-bottom: #292929 solid 2px;
+}
+
+.m_back2 {
+  background-color: #424B21;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-bottom: #292929 solid 2px;
+}
+
+.m_back3 {
+  background-color: rgb(119, 126, 92, 50%);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border-bottom: #292929 solid 2px;
+}
+
+.m_sect1 {
+  width: 16%;
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect2 {
+  width: 25%;
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect3 {
+  width: 15%;
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect4 {
+  width: 11%;  
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect5 {
+  width: 11%;
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect6 {
+  width: 11%;
+  padding: 10px 0px;
+  border-right: white solid 2px;
+}
+
+.m_sect7 {
+  width: 11%;
+  padding: 10px 0px;
+}
+
+.m_spacing {
+  height: 100px;
+}
+
+/*Services*/
+.services {
+  min-height: 780px;
+}
+
+.hextor_v {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  top: -154px;
+  left: 170px;
+}
+
+.s_mouse {
+  margin-top: -30px;
+}
+
+.s_section {
+  margin-top: 200px;
+}
+
+.s_text {
+  width: 50%;
+  margin: 0px 5%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.s_textspace {
+  margin: 50px 30px;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+/*Kontakt os*/
+.kontaktos {
+  margin-right: 800px;
+  min-height: 780px;
+}
+
+.k_padding {
+  padding: 0px 10px;
+}
+
+.hextor_møde {
+  height: 100%;
+  margin: auto 50px 0px 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.k_margin_top {
+  margin-top: 100px;
+}
+
+.k_text {
+  color: #777E5C;
+  font-size: 20px;
+  margin-top: 25px;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.k_brødtext {
+  font-size: 20px;
+  margin-top: 5px;
+  font-family: "Ledger", serif;
+  line-height: 1.5;
+  color: white;
+  text-align: start;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.k_start {
+  display: flex;
+  margin: 5px 25px 75px;
+}
+
+/*Kontakt form*/
+.k_headtxt {
+  display: flex;
+  align-items: flex-start;
+  padding: 25px 0px;
+  margin-left: 35%;
+}
+
+.k_form {
+  border: white solid 2px ;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0, 20%);
+  padding: 30px 150px;
+}
+
+.k_topform {
+  background-color: white;
+  border-radius: 50px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 50px;
+}
+
+.k_topbtn {
+  color: #777E5C;
+  background-color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  border-radius: 50px;
+}
+
+.k_topbtn:active {
+  background-color: #777E5C;
+  color: white;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #777E5C;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #545a40;
+}
+
+.kontakt_form {
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.k_margin {
+  margin: 30px 0px;
+}
+
+.nocheck > input {
+  display: none;
+}
+
+.nocheck input:checked + .k_checkedimg {
+  border: #777E5C solid 5px;
+  border-radius: 22px;
+}
+
+.k_checkedimg {
+  margin: 10px 5px;
+  border: rgb(0, 0, 0, 20%) solid 5px;
+}
+
+/*Om os*/
+.margin_top {
+  margin-top: 100px;
+}
+
+.margin_wide {
+  margin: 0px 25px;
+}
+
+.m_imgs {
+  margin: 20px 40px;
+}
+
+.o_margin {
+  height: 500px;
+}
+
+/*Card*/
+.c_front {
+  display: block;
+}
+
+.c_back {
+  display: none;
+}
+
+.c_front:hover .c_back {
+  display: block;
+}
+
+.c_back:hover {
+  display: block;
+}
+
+.c_back:hover .c_front{
+  display: none;
+}
+
+.card {
+  margin: 0px auto;
+  background-color: transparent;
+  width: 500px;
+  height: 500px;
+  perspective: 1000px;
+}
+
+.card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.6s;
+transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 60px;
+  font-weight: 500;
+}
+
+.produkter_img {
+  max-height: 250px;
+}
+
+.card {
+  margin: 25px auto;
+  width: 350px;
+  height: 350px;
+  perspective: 0px;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(0deg);
+}
+
+/*Error*/
+.errorpage {
+  min-height: 780px;
+  width: 100%;
+  margin-right: 910px;
+}
+
+.error {
+  margin-top: 200px;
+  height: 500px;
+}
