@@ -35,7 +35,7 @@ export default function Homepage() {
                     <h1 className="headline billedetext">
                         Gør en forskel <br /> med HexCo
                     </h1>
-                    <NavLink to="kontaktos"><button className="cta_btn"><span>Book møde</span></button></NavLink>
+                    <NavLink to="/kontaktos"><button className="cta_btn"><span>Book møde</span></button></NavLink>
                 </div>
                 <div className="hextor_s">
                     <LazyLoad>
@@ -71,7 +71,7 @@ export default function Homepage() {
                         Ved at prioritere bæredygtighed i webdesign skaber vi en digital verden, der beskytter vores planet for fremtidige generationer.
                     </p>
                     <div className="f_bæredygtig">
-                    <NavLink to="omos"><button className="cta_btn "><span>Læs mere</span></button></NavLink>
+                    <NavLink to="/omos"><button className="cta_btn "><span>Læs mere</span></button></NavLink>
                     </div>
                 </div>
                 <div>
@@ -109,7 +109,7 @@ export default function Homepage() {
                     <LazyLoad>
                         <img src={Oprettelse_ikonw} alt="Oprettelses ikon" className="oom_ikon1"/> <br />
                     </LazyLoad>
-                    <NavLink to="services"><button className="cta_btn"><span>Læs mere</span></button></NavLink>
+                    <NavLink to="/services"><button className="cta_btn"><span>Læs mere</span></button></NavLink>
                 </div>
                 <div className="column f_right">
                     <div className="f_optimering">
@@ -126,7 +126,7 @@ export default function Homepage() {
                                 <img src={Optimerings_ikonw} alt="Optimerings ikon" className="oom_ikon"/>     
                             </LazyLoad>
                         </div> <br /> <br />
-                        <NavLink to="services"><button className="cta_btn cta_margin"><span>Læs mere</span></button></NavLink>
+                        <NavLink to="/services"><button className="cta_btn cta_margin"><span>Læs mere</span></button></NavLink>
                     </div>
                     <div className="f_marketing">
                         <h1 className="headline">
@@ -142,7 +142,7 @@ export default function Homepage() {
                                 <img src={Marketing_ikonw} alt="marketings ikon" className="oom_ikon"/>
                             </LazyLoad>
                         </div> <br /> <br />
-                        <NavLink to="services"><button className="cta_btn cta_margin"><span>Læs mere</span></button></NavLink>
+                        <NavLink to="/services"><button className="cta_btn cta_margin"><span>Læs mere</span></button></NavLink>
                     </div>
                 </div>
             </aside>

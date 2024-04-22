@@ -4,7 +4,7 @@ import Oprettelse from "./servicepics/Oprettelse.svg"
 import Optimering from "./servicepics/Optimering.svg"
 import S_breaker from "./servicepics/S_breaker.svg"
 import MouseD from "./servicepics/MouseD.svg"
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 import React from 'react';
 import LazyLoad from 'react-lazyload';
@@ -34,7 +34,7 @@ export default function Servicespage() {
 
                         Så hvis du står og skal bruge en helt ny hjemmeside så lad os hjælpe dig med og skabe et tidløst og brugervenligt design som afspejler din virksomheds vision og mission.
                     </p>
-                    <NavLink to="kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
+                    <NavLink to="/kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
                 </div>
                 <div>
                     <LazyLoad>
@@ -57,8 +57,8 @@ export default function Servicespage() {
 
                         Lad os derfor hjælpe dig med at få optimeret din hjemmeside og give den en makeover.
                     </p>
-                    <NavLink to="kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
-                </div>                
+                    <NavLink to="/kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
+                </div>
             </aside>
             <aside className="s_section row bottom">
                 <div className="s_text">
@@ -70,7 +70,7 @@ export default function Servicespage() {
 
                         Lad os derfor være dine partnere og lad os få din hjemmeside ud på søgemaskinerne igen. 
                     </p>
-                    <NavLink to="kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
+                    <NavLink to="/kontaktos"><button className="cta_btn s_textspace"><span>Book møde</span></button></NavLink>
                 </div>
                 <div className="width-50">
                     <LazyLoad>
